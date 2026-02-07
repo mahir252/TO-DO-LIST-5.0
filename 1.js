@@ -10,13 +10,14 @@ function login(){
     alert("Give Me Password")
   }
   else if(value1 === username && value2 ===userpass){
-    window.location.href="index.html"
+    window.location.href="2.html"
   }else{
     alert("Username And Password is Incorrect")
   }
 
 
 }
+
 
 
 
