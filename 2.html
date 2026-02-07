@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Input Save Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --danger: #dc2626;
+            --bg: #f8fafc;
+            --border: #e5e7eb;
+            --text: #0f172a;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            background-color: gray;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        /* Auto expanding input (height grows naturally) */
+        .main-input {
+            width: 100%;
+            min-height: 48px;
+            padding: 12px 14px;
+            font-size: 16px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            resize: none;
+            outline: none;
+            transition: border 0.2s, box-shadow 0.2s;
+        }
+
+        .main-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+
+        .save-btn {
+            margin-top: 14px;
+            padding: 12px 26px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 10px;
+            border: none;
+            background: var(--primary);
+            color: white;
+            cursor: pointer;
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+
+        .save-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
+        }
+
+        /* Big content area */
+        .content-wrapper {
+            margin-top: 30px;
+            display: flex;
+            gap: 16px;
+            height: 70vh;
+        }
+
+        .content-box {
+            flex: 1;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px;
+            overflow-y: auto;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .content-box.empty::before {
+            content: "";
+            color: #6c788a;
+        }
+
+        .delete-btn {
+            width: 110px;
+            height: 44px;
+            border-radius: 10px;
+            border: none;
+            background: var(--danger);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            align-self: flex-start;
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+
+        .delete-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 18px rgba(220, 38, 38, 0.25);
+        }
+
+        @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+
+            .delete-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Auto expanding input -->
+    <textarea class="main-input" id="inputtext" placeholder="Type here..."></textarea>
+
+    <!-- Save button -->
+    <button class="save-btn" onclick="save()">Save</button>
+
+    <!-- Big box + delete -->
+    <div class="content-wrapper">
+        <div class="content-box empty" id="outputBox" >
+            <!-- JS দিয়ে এখানে content ঢুকাবে -->
+        </div>
+
+        <button class="delete-btn" onclick="alert('UPDEAT  NOT AVAILABLE')">Delete</button>
+    </div>
+
+</div>
+
+
+<h1>There are some updates left,They will be added later</h1>
+
+
+
+<script src="coustom.js"></script>
+
+
+</body>
+</html>
